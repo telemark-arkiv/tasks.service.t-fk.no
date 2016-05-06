@@ -10,6 +10,13 @@ tasks_base:
   net: host
   restart: always
 
+tasks_ping:
+  image: telemark/tfk-seneca-ping
+  container_name: tasks_ping
+  env_file: tasks.env
+  net: host
+  restart: always
+
 tasks_user:
   image: telemark/tasks-user
   container_name: tasks_user
