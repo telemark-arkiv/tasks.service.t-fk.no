@@ -1,0 +1,32 @@
+redis:
+  image: redis
+  ports:
+    - 6379:6379
+
+tasks_base:
+  image: telemark/tfk-seneca-base
+  container_name: tasks_base
+  env_file: tasks.env
+  net: host
+  restart: always
+
+tasks_user:
+  image: telemark/tasks-user
+  container_name: tasks_user
+  env_file: tasks.env
+  net: host
+  restart: always
+
+tasks_collector_compilo:
+  image: telemark/tasks-collector-compilo
+  container_name: tasks_collector_compilo
+  env_file: tasks.env
+  net: host
+  restart: always
+
+tasks_collector_visma:
+  image: telemark/tasks-collector-visma
+  container_name: tasks_collector_visma
+  env_file: tasks.env
+  net: host
+  restart: always
