@@ -1,2 +1,2 @@
-# tasks.t-fk.no
+# tasks.service.t-fk.no
 Setup for our tasks service
