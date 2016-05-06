@@ -15,9 +15,9 @@ tasks_front:
   container_name: tasks_front
   env_file: tasks.env
   net: host
+  restart: always
   ports:
     - 8000:8000
-  restart: always
 
 tasks_ping:
   image: telemark/tfk-seneca-ping
