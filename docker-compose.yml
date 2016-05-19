@@ -29,6 +29,20 @@ tasks_collector_compilo:
   restart: always
   net: container:tasks_front
 
+tasks_collector_exchange:
+  image: telemark/tasks-collector-exchange
+  container_name: tasks_collector_exchange
+  env_file: tasks.env
+  restart: always
+  net: container:tasks_front
+
+mail_collector_exchange:
+  image: telemark/mail-collector-exchange
+  container_name: mail_collector_exchange
+  env_file: tasks.env
+  restart: always
+  net: container:tasks_front
+
 tasks_collector_visma:
   image: telemark/tasks-collector-visma
   container_name: tasks_collector_visma
