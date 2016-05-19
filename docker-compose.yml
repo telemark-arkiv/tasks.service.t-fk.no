@@ -1,7 +1,5 @@
-redis:
-  image: redis
-  ports:
-    - "6379:6379"
+mongoserver:
+  image: mongo:3.2.1
 
 tasks_base:
   image: telemark/tfk-seneca-base
@@ -43,5 +41,7 @@ tasks_front:
   container_name: tasks_front
   env_file: tasks.env
   restart: always
+  links:
+    - mongoserver
   ports:
     - 8000:8000
