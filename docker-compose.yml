@@ -1,61 +1,42 @@
-mongoserver:
-  image: mongo:3.2.1
-
 tasks_base:
-  image: telemark/tfk-seneca-base
+  image: telemark/tfk-seneca-mesh-base
   container_name: tasks_base
   env_file: tasks.env
-  restart: always
-  net: container:tasks_front
-
-tasks_ping:
-  image: telemark/tfk-seneca-ping
-  container_name: tasks_ping
-  env_file: tasks.env
-  restart: always
   net: container:tasks_front
 
 tasks_user:
   image: telemark/tasks-user
   container_name: tasks_user
   env_file: tasks.env
-  restart: always
   net: container:tasks_front
 
 tasks_collector_compilo:
   image: telemark/tasks-collector-compilo
   container_name: tasks_collector_compilo
   env_file: tasks.env
-  restart: always
   net: container:tasks_front
 
 tasks_collector_exchange:
   image: telemark/tasks-collector-exchange
   container_name: tasks_collector_exchange
   env_file: tasks.env
-  restart: always
   net: container:tasks_front
 
 mail_collector_exchange:
   image: telemark/mail-collector-exchange
   container_name: mail_collector_exchange
   env_file: tasks.env
-  restart: always
   net: container:tasks_front
 
 tasks_collector_visma:
   image: telemark/tasks-collector-visma
   container_name: tasks_collector_visma
   env_file: tasks.env
-  restart: always
   net: container:tasks_front
 
 tasks_front:
   image: telemark/tasks-front
   container_name: tasks_front
   env_file: tasks.env
-  restart: always
-  links:
-    - mongoserver
   ports:
     - 8000:8000
